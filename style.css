@@ -1,0 +1,122 @@
+/* css vaariables */
+
+:root {
+    --bg-primary: #111827;
+    --bg-secondary: #1F2A3A;
+    --bg-card: #162032;
+    --accent: #2E7CE8;
+    --accent-light: #7CB9FF;
+    --text-primary: #F0F6FF;
+    --text-muted: #6B7A90;
+    --text-mid: #A8BCCF;
+}
+
+/* reset and base */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body */
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/*  Subtle grid background */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(46, 124, 232, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(46, 124, 232, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* nav */
+
+nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    border-bottom: 0.5px solid rgba(124, 185, 255, 0.1);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-secondary);
+    border: 0.5px solid rgba(124, 185, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--accent-light);
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: color 0.2;
+    letter-spacing: 0.2px;
+}
+
+.nav-links a.active {color: var(--accent-light);}
+.nav-links a:hover {color: var(--text-mid);}
+
+.nav-cta {
+    background: var(--accent);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.2px;
+}
+
+.nav-cta:hover {
+    background: #3E8CF5;
+    transform: translateY(-1px);
+}
+
+/* hero */
