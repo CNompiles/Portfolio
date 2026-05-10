@@ -26,7 +26,7 @@ body {
     color: var(--text-primary);
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /*  Subtle grid background */
@@ -140,8 +140,8 @@ nav {
     right: 10%;
     top: 50%;
     transform: translateY(-50%);
-    width: 420%;
-    height: 420%;
+    width: 420px;
+    height: 420px;
     background: radial-gradient(circle, rgba(46, 124, 232, 0.14) 0%, transparent 70%);
     pointer-events: none;
     border-radius: 50%;
@@ -285,7 +285,7 @@ nav {
     gap: 28px;
     margin-top: 44px;
     padding-top: 28px;
-    border-top: 0.5px, solid rgba(124, 185, 255, 0.1);
+    border-top: 0.5px solid rgba(124, 185, 255, 0.1);
     animation: fadeUp 0.6s 0.55s ease both;
 }
 
@@ -415,7 +415,7 @@ nav {
     gap: 1px;
 }
 
-.badge-tittle {
+.badge-title {
     font-size: 12px;
     font-weight: 500;
     color: var(--text-primary);
