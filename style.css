@@ -646,11 +646,6 @@ nav {
     color: var(--text-muted);
 }
 
-.badge-sub {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
 /* Portfolio Section */
 
 .portofolio {
