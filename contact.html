@@ -35,74 +35,76 @@
         <p>Have a project in mind or just want to say hi? Feel free to reach out — I'm always open to new opportunities.</p>
     </div>
 
-    <!-- Info Cards -->
+    <!-- Main: left info + right form -->
+    
+    <div class="contact-main">
 
-    <div class="contact-info">
+        <!-- Left -->
+        <div class="contact-left">
 
-        
-        <div class="info-card">
-            <div class="info-icon">✉️</div>
-            <div class="info-label">Email</div>
-            <a href="mailto:xristosnompiles16@gmail.com" class="info-value">xristosnompiles16@gmail.com</a>
-            <div class="info-sub">I usually reply within 8 hours.</div>
-        </div>
-        
-        <div class="info-card">
-            <div class="info-icon">📍</div>
-            <div class="info-label">Location</div>
-            <div class="info-value" style="cursor: default;">Thessaloniki, Greece</div>
-            <div class="info-sub">Available for remote work worldwide.</div>
-        </div>
-        
-        <div class="info-card">
-            <div class="info-icon">🔗</div>
-            <div class="info-label">Socials</div>
-            <div class="socials-row">
-                <a href="https://github.com/CNompiles" target="_blank" class="social-btn github">
-                    <span class="social-icon">🐙</span>
-                    <span class="social-label">GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/chris-nompiles/" target="_blank" class="social-btn linkedin">
-                    <span class="social-icon">💼</span>
-                    <span class="social-label">LinkedIn</span>
-                </a>
-                <a href="https://instagram.com/xristos_n21" target="_blank" class="social-btn instagram">
-                    <span class="social-icon">📸</span>
-                    <span class="social-label">Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100079959027484" target="_blank" class="social-btn facebook">
-                    <span class="social-icon">👤</span>
-                    <span class="social-label">Facebook</span>
-                </a>
+            <div class="info-card">
+                <div class="info-icon">✉️</div>
+                <div class="info-label">Email</div>
+                <a href="mailto:xristosnompiles16@gmail.com" class="info-value">xristosnompiles16@gmail.com</a>
+                <div class="info-sub">I usually reply within 8 hours.</div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Form -->
-    
-    <div class="contact-form-section">
-        <h2>Send me a <span>message</span></h2>
-        <form class="contact-form" action="https://formspree.io/f/xristosnompiles16@gmail.com" method="POST">
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="example@email.com" required>
+
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <div class="info-label">Location</div>
+                <div class="info-value" style="cursor: default;">Thessaloniki, Greece</div>
+                <div class="info-sub">Available for remote work worldwide.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">🔗</div>
+                <div class="info-label">Socials</div>
+                <div class="socials-row">
+                    <a href="https://github.com/CNompiles" target="_blank" class="social-btn github">
+                        <span class="social-icon">🐙</span>
+                        <span class="social-label">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chris-nompiles/" target="_blank" class="social-btn linkedin">
+                        <span class="social-icon">💼</span>
+                        <span class="social-label">LinkedIn</span>
+                    </a>
+                    <a href="https://instagram.com/xristos_n21" target="_blank" class="social-btn instagram">
+                        <span class="social-icon">📸</span>
+                        <span class="social-label">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100079959027484" target="_blank" class="social-btn facebook">
+                        <span class="social-icon">👤</span>
+                        <span class="social-label">Facebook</span>
+                    </a>
                 </div>
             </div>
-            <div class="form-group">
-                <label>Subject</label>
-                <input type="text" name="subject" placeholder="Project inquiry...">
-            </div>
-            <div class="form-group">
-                <label>Message</label>
-                <textarea name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Send Message →</button>
-        </form>
+        </div>
+
+        <!-- Right -->
+        <div class="contact-right">
+            <h2>Send me a <span>message</span></h2>
+            <form class="contact-form" action="https://formspree.io/f/xristosnompiles16@gmail.com" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="example@email.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" name="subject" placeholder="Project inquiry...">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="7" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message →</button>
+            </form>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -110,11 +112,11 @@
     <footer>
         <div class="footer-logo">Chris <span>Nompiles</span></div>
         <div class="footer-copy">© 2026 Chris Nompiles. All rights reserved.</div>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#portofolio">Portfolio</a>
-            <a href="contact.html">Contact</a>
+        <div class="footer-socials">
+            <a href="https://github.com/CNompiles" target="_blank" class="footer-social-btn github">🐙</a>
+            <a href="https://www.linkedin.com/in/chris-nompiles/" target="_blank" class="footer-social-btn linkedin">💼</a>
+            <a href="https://instagram.com/xristos_n21" target="_blank" class="footer-social-btn instagram">📸</a>
+            <a href="https://www.facebook.com/profile.php?id=100079959027484" target="_blank" class="footer-social-btn facebook">👤</a>
         </div>
     </footer>
 
