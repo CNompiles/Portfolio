@@ -267,6 +267,7 @@ footer {
 .footer-socials {
     display: flex;
     gap: 10px;
+    margin-right: 50px;
 }
 
 .footer-social-btn {
@@ -291,3 +292,67 @@ footer {
 .footer-social-btn.linkedin:hover { background: #0077b5; border-color: #0077b5; }
 .footer-social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743); border-color: #e6683c; }
 .footer-social-btn.facebook:hover { background: #1877f2; border-color: #1877f2; }
+
+/* Responsive */
+
+/* medium screens 768px to 1024px */
+
+@media (max-width: 1024px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 48px 32px 60px;
+    }
+
+    .contact-hero {
+        padding: 60px 32px 40px;
+    }
+
+    footer {
+        padding: 20px 32px;
+    }
+}
+
+/* Small screens (below 768px) (mobile) */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-logo {
+        flex: 1;
+    }
+
+    .contact-hero {
+        padding: 48px 20px 32px;
+    }
+
+    .contact-main {
+        padding: 32px 20px 48px;
+        gap: 32px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .footer-socials {
+        margin-right: 0;
+        justify-content: center;
+    }
+}
