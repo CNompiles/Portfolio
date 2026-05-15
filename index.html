@@ -11,23 +11,31 @@
 <body>
 
     <!-- Navbar -->
+    
     <nav>
         <div class="nav-logo">
             <div class="logo-mark">C</div>
             <span class="logo-text">Chris Nompiles</span>
         </div>
-
-        <ul class="nav-links">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portofolio">Portofolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <button class="nav-cta">Case Studies</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <!-- Mobile menu -->
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#portofolio" onclick="closeMenu()">Portofolio</a>
+        <a href="contact.html" onclick="closeMenu()">Contact</a>
+        <button class="mobile-cta" onclick="window.location='contact.html'; closeMenu()">Hire Me</button>
+    </div>
+
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-left">
@@ -35,10 +43,11 @@
             <p class="hero-greeting">Hi there I'm</p>
             <h1 class="hero-name">Chris <br><span>Nompiles</span></h1>
             
+            <!-- Hero Role -->
             <div class="hero-role">
                 <span>Web-UI/UX Designer</span>
                 <div class="role-divider"></div>
-                <span>Web Developer</span>
+                <span class="typewriter-text" id="typewriter"></span><span class="cursor"></span>
             </div>
             <p class="hero-desc">I am a Junior web developer, UI/UX designer with front-end and back-end development skills.</p>
             
@@ -395,6 +404,6 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>
