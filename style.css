@@ -29,181 +29,153 @@ body {
     overflow-x: hidden;
 }
 
-/*  Subtle grid background */
+/* Sub grid background */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: 
-        linear-gradient(to right, rgba(46, 124, 232, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(46, 124, 232, 0.04) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(46, 124, 232, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(46, 124, 232, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
 }
 
-/* nav */
+/* Ribbit style navigation */
 
-nav {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 48px;
-    border-bottom: 0.5px solid rgba(124, 185, 255, 0.1);
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-mark {
-    width: 32px;
-    height: 32px;
-    background: var(--bg-secondary);
-    border: 0.5px solid rgba(124, 185, 255, 0.1);
-    border-radius: 6px;
+.ribbit-nav {
+    position: fixed;
+    top: 20px;
+    left: auto;
+    right: 50px;
+    height: 60px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(124, 185, 255, 0.15);
+    border-radius: 30px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
+    padding: 0 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    max-width: 600px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The Burger icon that only appears on the scroll */
+
+.nav-trigger {
+    width: 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: width 0.3s ease, opacity 0.2s ease;
+}
+
+.ribbit-nav .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.ribbit-nav:not(.scrolled) .nav-trigger {
+    display: none;
+}
+
+.ribbit-nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    transition: color 0.2s ease;
+}
+
+.ribbit-nav .nav-links a:hover {
     color: var(--accent-light);
 }
 
-.logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: var(--text-primary);
-    letter-spacing: 0.3px;
+/* Scroll status, Transform into a Ball */
+
+.ribbit-nav.scrolled {
+    left: calc(100% - 110px);
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 0;
+    justify-content: center;
+    background: #000;
 }
 
-.nav-links, .nav-cta {
-    display: none;
-    /* display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none; */
+.ribbit-nav.scrolled .nav-links {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; /* Για να μην επηρεάζουν το μέγεθος της μπάλας */
+    pointer-events: none;
 }
 
-.nav-links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--text-muted);
-    transition: color 0.2;
-    letter-spacing: 0.2px;
+.ribbit-nav.scrolled .nav-trigger {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
 }
 
-.nav-links a.active {color: var(--accent-light);}
-.nav-links a:hover {color: var(--text-mid);}
-
-.nav-cta {
-    background: var(--accent);
-    color: var(--text-primary);
-    border: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.2px;
+.ribbit-nav.scrolled:hover,
+.ribbit-nav.scrolled.js-open {
+    left: calc(100% - 450px); /* Ανοίγει προς τα αριστερά, μένοντας στη δεξιά πλευρά */
+    width: 400px; /* Το πλάτος που θέλεις να έχει όταν είναι ανοιχτό */
+    right: 50px;
+    border-radius: 30px;
+    padding: 0 30px;
 }
 
-.nav-cta:hover {
-    background: #3E8CF5;
-    transform: translateY(-1px);
+.ribbit-nav.scrolled:hover .nav-links,
+.ribbit-nav.scrolled.js-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+    /* Μικρή καθυστέρηση για να προλάβει να μεγαλώσει η μπάρα */
+    transition: opacity 0.4s ease 0.2s, visibility 0.4s ease 0.2s; 
 }
 
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-    z-index: 200;
+/* Hide burger when menu is open */
+
+.ribbit-nav.scrolled.js-open .nav-trigger,
+.ribbit-nav.scrolled:hover .nav-trigger {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.hamburger span {
-    display: block;
-    width: 24px;
+.burger-bar {
+    width: 18px;
     height: 2px;
     background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* Hamburger → X animation */
-
-.hamburger.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.burger-bar::before, .burger-bar::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: var(--text-primary);
 }
-.hamburger.open span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
+.burger-bar::before { top: -6px; }
+.burger-bar::after { top: 6px; }
 
-/* Fullscreen mobile menu */
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 24, 39, 0.98);
-    z-index: 99;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    backdrop-filter: blur(10px);
-}
-
-.mobile-menu.open {
-    display: flex;
-}
-
-.mobile-menu a {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--text-mid);
-    text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: -0.5px;
-}
-
-.mobile-menu a:hover,
-.mobile-menu a.active {
-    color: var(--accent-light);
-}
-
-.mobile-cta {
-    background: var(--accent);
-    color: var(--text-primary);
-    border: none;
-    padding: 14px 36px;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s;
-}
-
-.mobile-cta:hover {
-    background: #3E8CF5;
-}
-
-/* TYPEWRITER CURSOR */
+/* Typewritter cursor */
 
 .typewriter-text {
     color: var(--accent);
@@ -223,6 +195,7 @@ nav {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
 }
+
 /* hero */
 
 .hero {
@@ -236,7 +209,7 @@ nav {
     gap: 40px;
 }
 
- /* Glow blob behind avatar */
+/* Glow blob behind avatar */
 
 .hero::after {
     content: "";
@@ -1198,22 +1171,12 @@ nav {
 .footer-social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743); border-color: #e6683c; }
 .footer-social-btn.facebook:hover { background: #1877f2; border-color: #1877f2; }
 
-/* =====================
-   RESPONSIVE — TABLET (max 1024px)
-   ===================== */
+/* Responsive - Tablet (max 1024px)*/
 
 @media (max-width: 1024px) {
 
-    /* Nav */
-    nav {
-        padding: 20px 32px;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
     /* Hero */
+
     .hero {
         grid-template-columns: 1fr;
         padding: 48px 32px;
@@ -1230,6 +1193,7 @@ nav {
     }
 
     /* About */
+
     .about {
         grid-template-columns: 1fr;
         gap: 48px;
@@ -1237,6 +1201,7 @@ nav {
     }
 
     /* Portfolio */
+
     .portofolio {
         padding: 80px 32px;
     }
@@ -1246,6 +1211,7 @@ nav {
     }
 
     /* Services */
+
     .services {
         padding: 80px 32px;
     }
@@ -1255,6 +1221,7 @@ nav {
     }
 
     /* Footer */
+
     .site-footer {
         padding: 48px 32px 0;
     }
@@ -1265,22 +1232,80 @@ nav {
     }
 }
 
-/* Responsive — mobile (max 768px) */
+/*Responsive - Mobile (max 768px)*/
 
 @media (max-width: 768px) {
-
-    /* Nav */
-    nav {
-        padding: 16px 20px;
-        position: relative;
+    .ribbit-nav {
+        background: rgba(17, 24, 39, 0.96);   
+        border: 0.5px solid rgba(124, 185, 255, 0.2);
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        top: auto;
+        width: max-content;
+        max-width: calc(100vw - 15px);
     }
 
-    .nav-links {
-        display: none;
+    .ribbit-nav.scrolled {
+        width: 56px;
+        height: 56px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .nav-cta {
-        display: none;
+    .ribbit-nav.scrolled:hover {
+        max-width: 600px;
+        padding: 0 25px;
+        border-radius: 30px;
+        width: auto;
+    }
+
+    .ribbit-nav.scrolled:hover .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .ribbit-nav.scrolled:hover .nav-trigger {
+        width: 0;
+        opacity: 0;
+    }
+
+    .ribbit-nav.scrolled .nav-links {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .ribbit-nav.scrolled .nav-trigger {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
+
+    .ribbit-nav.scrolled.js-open {
+        width: max-content;
+        height: 50px;
+        max-width: calc(100vw - 40px);
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 20px !important;
+        transform: translateX(-50%) !important;
+        padding: 0 20px;
+        border-radius: 30px;
+    }
+
+    .ribbit-nav.scrolled.js-open .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+        gap: 15px;
+    }
+
+    .ribbit-nav.scrolled.js-open .nav-trigger {
+        width: 0;
+        opacity: 0;
     }
 
     /* Hero */
@@ -1383,8 +1408,6 @@ nav {
     .footer-socials {
         justify-content: center;
     }
-
-    /* Section labels centered */
 
     .section-label {
         justify-content: center;
