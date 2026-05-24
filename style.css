@@ -1187,6 +1187,11 @@ body::before {
 .footer-social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743); border-color: #e6683c; }
 .footer-social-btn.facebook:hover { background: #1877f2; border-color: #1877f2; }
 
+.instagram-gradient {
+    background: radial-gradient(circle at 30% 107%, rgb(254, 218, 117) 0%, rgb(250, 126, 30) 5%, rgb(214, 41, 118) 45%, rgb(150, 47, 191) 60%, rgb(79, 91, 213) 90%);
+    display: inline-block;
+}
+
 /* Responsive - Tablet (max 1024px)*/
 
 @media (max-width: 1024px) {
